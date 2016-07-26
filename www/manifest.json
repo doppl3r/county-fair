@@ -1,0 +1,20 @@
+{
+  "manifest": [
+    { "id": "backgrounds", "src": "img/backgrounds.png" },
+    { "id": "chests", "src": "img/chests.png" },
+    { "id": "text", "src": "img/text.png" },
+    { "id": "player", "src": "img/player.png" },
+    { "id": "player-large", "src": "img/player-large.png" },
+    { "id": "selector", "src": "img/selector.png" },
+    { "id": "trials-remaining", "src": "img/trials-remaining.png" },
+    { "id": "coin", "src": "img/coin.png" },
+    { "id": "hearo-title", "src": "img/hearo-title.png" },
+    { "id": "win", "src": "sounds/win.wav" },
+    { "id": "sword", "src": "sounds/sword.wav" },
+    { "id": "sword-low", "src": "sounds/sword-low.wav" },
+    { "id": "chest-open", "src": "sounds/chest-open.wav" },
+    { "id": "hearo-theme", "src": "sounds/hearo-theme.mp3" },
+    { "id": "player-run", "src": "sounds/run.mp3" },
+    { "id": "coins", "src": "sounds/coins.mp3" }
+  ]
+}

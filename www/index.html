@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta content='width=device-width, initial-scale=.2, maximum-scale=.2, user-scalable=0' name='viewport' />
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+        <link rel='shortcut icon' href='res/icon/android/icon-36-ldpi.png' type='image/x-icon' >
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div class="app">
+            <div id="content">
+                <canvas id="gameCanvas" width="1280" height="720"></canvas>
+            </div>
+        </div>
+
+        <script src="js/preloadjs-NEXT.min.js"></script>
+        <script src="js/soundjs-NEXT.min.js"></script>
+        <script src="js/easeljs-NEXT.combined.js"></script>
+        <script src="js/tweenjs-NEXT.min.js"></script>
+        <script src="js/ndgmr.Collision.js"></script>
+
+        <!-- Game 'Classes'  -->
+        <script type="text/javascript" src="js/AssetManager.js"></script>
+        <script type="text/javascript" src="js/Background.js"></script>
+        <script type="text/javascript" src="js/Player.js"></script>
+        <script type="text/javascript" src="js/Chest.js"></script>
+        <script type="text/javascript" src="js/ChestManager.js"></script>
+        <script type="text/javascript" src="js/CustomCharacter.js"></script>
+        <script type="text/javascript" src="js/CustomText.js"></script>
+        <script type="text/javascript" src="js/CoinEffect.js"></script>
+        <script type="text/javascript" src="js/Coin.js"></script>
+        <script type="text/javascript" src="js/Selector.js"></script>
+        <script type="text/javascript" src="js/ScreenIntro.js"></script>
+        <script type="text/javascript" src="js/ScreenInstructions.js"></script>
+        <script type="text/javascript" src="js/ScreenScore.js"></script>
+        <script type="text/javascript" src="js/ScreenSettings.js"></script>
+        <script type="text/javascript" src="js/Interface.js"></script>
+        <script type="text/javascript" src="js/LevelManager.js"></script>
+        <!-- Game Parent Script -->
+        <script type="text/javascript" src="js/Game.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>
