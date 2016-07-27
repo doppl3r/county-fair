@@ -8,7 +8,7 @@
     var KEYCODE_A = 65; //useful keycode
     var KEYCODE_D = 68; //useful keycode
     var KEYCODE_S = 83; //useful keycode
-    var VIEW = 0; //current stage assets
+    var VIEW = 1; //current stage assets
 
     //register key functions
     document.onkeydown = handleKeyDown;
@@ -27,21 +27,16 @@
             case 0: //intro screen
                 window.Game.screenIntro.tick(event);
             break;
-            case 1: //instructions screen
-                window.Game.screenInstructions.tick(event);
-            break;
-            case 2: //game screen
+            case 1: //game screen
+                //window.Game.screenInstructions.tick(event);
                 window.Game.background.tick(event);
-                window.Game.player.tick(event);
-                window.Game.chestManager.tick(event);
+                window.Game.baseball.tick(event);
+                window.Game.bottles.tick(event);
                 window.Game.levelManager.tick(event);
                 window.Game.interface.tick(event);
             break;
-            case 3: //score screen
+            case 2: //game screen
                 window.Game.screenScore.tick(event);
-            break;
-            case 4: //settings screen
-                window.Game.screenSettings.tick(event);
             break;
         }
         window.Game.stage.update(event);
@@ -50,19 +45,19 @@
     function handleKeyDown(e) {
         if (!e) { var e = window.event; } //cross browser issues exist
         switch (e.keyCode) {
-            case KEYCODE_A: case KEYCODE_LEFT: Game.prototype.player.moveLeft(true); break;
-            case KEYCODE_D: case KEYCODE_RIGHT: Game.prototype.player.moveRight(true); break;
-            case KEYCODE_W: case KEYCODE_UP: Game.prototype.player.moveUp(true); break;
-            case KEYCODE_S: case KEYCODE_DOWN: Game.prototype.player.moveDown(true); break;
+            case KEYCODE_A: case KEYCODE_LEFT: Game.prototype.baseball.moveLeft(true); break;
+            case KEYCODE_D: case KEYCODE_RIGHT: Game.prototype.baseball.moveRight(true); break;
+            case KEYCODE_W: case KEYCODE_UP: Game.prototype.baseball.moveUp(true); break;
+            case KEYCODE_S: case KEYCODE_DOWN: Game.prototype.baseball.moveDown(true); break;
         }
     }
     function handleKeyUp(e) {
         if (!e) { var e = window.event; } //cross browser issues exist
         switch (e.keyCode) {
-            case KEYCODE_A: case KEYCODE_LEFT: Game.prototype.player.moveLeft(false); break;
-            case KEYCODE_D: case KEYCODE_RIGHT: Game.prototype.player.moveRight(false); break;
-            case KEYCODE_W: case KEYCODE_UP: Game.prototype.player.moveUp(false); break;
-            case KEYCODE_S: case KEYCODE_DOWN: Game.prototype.player.moveDown(false); break;
+            case KEYCODE_A: case KEYCODE_LEFT: Game.prototype.baseball.moveLeft(false); break;
+            case KEYCODE_D: case KEYCODE_RIGHT: Game.prototype.baseball.moveRight(false); break;
+            case KEYCODE_W: case KEYCODE_UP: Game.prototype.baseball.moveUp(false); break;
+            case KEYCODE_S: case KEYCODE_DOWN: Game.prototype.baseball.moveDown(false); break;
         }
     }
 
@@ -90,7 +85,7 @@
 
         this.assetManager.preload.on("complete", function(){
             Game.prototype.setStage();
-            Game.prototype.hearoTheme = createjs.Sound.play("hearo-theme", {interrupt: createjs.Sound.INTERRUPT_NONE, loop: -1});
+            //Game.prototype.hearoTheme = createjs.Sound.play("hearo-theme", {interrupt: createjs.Sound.INTERRUPT_NONE, loop: -1});
         });
         this.assetManager.preload.on("progress", function(){ Game.prototype.assetManager.updateLoading(); window.Game.stage.update(); });
     }
@@ -99,24 +94,15 @@
         this.stage.removeAllChildren();
 
         //initialize game objects
-        if (this.background == null) {
-            this.background = new Background();
-            this.background.x = this.canvas.width / 2;
-            this.background.y = this.canvas.height / 2;
-            this.background.setBackground("bg-2");
-        }
-        if (this.player == null) this.player = new Player();
-        else this.player.setXY(this.canvas.width / 2, (this.canvas.height / 2)+64);
+        if (this.background == null) {  this.background = new Background(); }
+        if (this.baseball == null) { this.baseball = new Baseball(); this.baseball.centerToScreen(); }
         if (this.selector == null) this.selector = new Selector();
-        if (this.chestManager == null) this.chestManager = new ChestManager();
+        if (this.bottles == null) this.bottles = new Bottles();
         if (this.interface == null) this.interface = new Interface();
-        else this.interface.resetFade();
         if (this.screenIntro == null) this.screenIntro = new ScreenIntro();
-        if (this.screenInstructions == null) this.screenInstructions = new ScreenInstructions();
         if (this.screenScore == null) this.screenScore = new ScreenScore();
-        if (this.screenSettings == null) this.screenSettings = new ScreenSettings();
 
-        //ensure stage is blank and add the player
+        //ensure stage is blank and add the baseball
         this.stage.clear();
 
         switch(VIEW) {
@@ -124,21 +110,14 @@
                 this.stage.addChild(this.screenIntro);
             break;
             case 1:
-                this.stage.addChild(this.screenInstructions);
+                this.stage.addChild(this.background);
+                this.stage.addChild(this.bottles);
+                this.stage.addChild(this.selector);
+                this.stage.addChild(this.baseball);
+                this.stage.addChild(this.interface);
             break;
             case 2:
-                this.stage.addChild(this.background);
-                this.stage.addChild(this.chestManager);
-                this.stage.addChild(this.selector);
-                this.stage.addChild(this.player);
-                this.stage.addChild(this.interface);
-                this.levelManager.createLevel();
-            break;
-            case 3:
                 this.stage.addChild(this.screenScore);
-            break;
-            case 4:
-                this.stage.addChild(this.screenSettings);
             break;
         }
 
@@ -153,7 +132,7 @@
             case 0: break;
             case 1: break;
             case 2:
-                this.player.navigate(event);
+                this.baseball.navigate(event);
                 this.selector.animateAt(event);
             break;
             case 3: break;

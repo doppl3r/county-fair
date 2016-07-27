@@ -1,20 +1,20 @@
 (function (window) {
 
     //constructor
-    function Chest(instaClick){
+    function Bottle(instaClick){
         this.Container_constructor();
         this.instaClick = instaClick;
     }
 
     //instance of class
-    var container = new createjs.extend(Chest, createjs.Container);
+    var container = new createjs.extend(Bottle, createjs.Container);
 
 	//public functions
     container.tick = function(event){
         if (this.coins != null) this.coins.tick(event);
     }
-    container.addChest = function (x,y,scaleX,scaleY,spriteSheet,frame,centerText) {
-        //initialize Chest
+    container.add = function (x,y,scaleX,scaleY,spriteSheet,frame,centerText) {
+        //initialize Bottle
         this.x = x;
         this.y = y;
         this.sprite = new createjs.Sprite(spriteSheet, frame);
@@ -35,10 +35,6 @@
             }
             if (!this.instaClick) window.Game.levelManager.setDelay(120); //60 = 1 second delay
             this.clicked=true;
-            if (!this.mute){
-                createjs.Sound.play("sword-low", {pan:0});
-                createjs.Sound.play("chest-open", {pan:0});
-            }
             this.sprite.gotoAndPlay(this.sprite.spriteSheet.animations[this.sprite._currentFrame+(this.success ? 1:2)]);
             this.resetMouse();
         }
@@ -56,14 +52,14 @@
         this.customText = new CustomText(0,-48,this.scaleX < 0 ? -1:1,1,text,centerText);
         this.addChild(this.customText);
     }
-    container.updateChest = function(text, ear, success){
+    container.update = function(text, ear, success){
         this.setText(text, this.centerText);
         this.ear=ear;
         this.success=success;
     }
     container.resetMouse = function() { this.sprite.alpha=1; this.cursor="default"; }
     container.reset = function() { this.clicked = this.success = false; this.resetMouse(); this.removeChild(this.coins); }
-    container.muteChest = function(){ this.mute = true; }
+    container.mute = function(){ this.mute = true; }
 
-	window.Chest = new createjs.promote(Chest, "Container");
+	window.Bottle = new createjs.promote(Bottle, "Container");
 }(window));

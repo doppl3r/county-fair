@@ -18,8 +18,6 @@
         this.preload = new createjs.LoadQueue(true);
         this.preload.installPlugin(createjs.Sound);
         this.preload.loadManifest({ id: "manifest", src:"manifest.json" });
-        this.preload.loadManifest({ id: "words_k", src:"words-k.json" });
-        //this.preload.loadManifest({ id: "words_1", src:"words-1.json" });
 
         //draw background of progress bar
         this.bar1 = new createjs.Shape();

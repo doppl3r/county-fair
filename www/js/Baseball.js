@@ -1,33 +1,21 @@
 (function (window) {
 
     //constructor
-	function Player() {
+	function Baseball() {
 		this.Container_constructor();
-		this.spriteSheet = new createjs.SpriteSheet({
-            framerate: 8,
-            images: [window.Game.assetManager.preload.getResult("player")],
-            frames: [[4,4,136,240,0,56,218.25],[144,4,144,236,0,57,214.25],[292,4,149,236,0,58,213.25],
-                    [4,248,151,259,0,50,237.25],[159,248,128,261,0,43,235.25],[291,248,213,193,0,27,160.25],
-                    [4,513,140,207,0,58,190.25],[148,513,138,209,0,63,182.25]],
-            // define two animations, run (loops, 1.5x speed) and jump (returns to run):
-            animations: {
-                idle: { frames: [0,1,2,1] },
-                attack: { frames: [3,4,5,5], next: "idle" },
-                run: { frames: [6,7] }
-            }
-        });
-        this.sprite = new createjs.Sprite(this.spriteSheet, "idle");
+		this.spriteSheet = new createjs.SpriteSheet({ framerate: 1, images: [window.Game.assetManager.preload.getResult("baseball")], frames: [[0,0,239,245,0,119.5,122.5]], animations: { default: { frames: [0] }}});
+        this.sprite = new createjs.Sprite(this.spriteSheet, "default");
         this.addChild(this.sprite);
         this.vel = 10;
         this.forceAllKeysUp();
 	}
 
 	//instance of class
-	var container = createjs.extend(Player, createjs.Container);
+	var container = createjs.extend(Baseball, createjs.Container);
 
     //update
 	container.tick = function (event) {
-	    //move player if target is not in reach
+	    //move baseball if target is not in reach
 	    if (this.target){
 	        if (Math.abs(this.x - this.targetX) >= this.vel ||
                 Math.abs(this.y - this.targetY) >= this.vel){
@@ -38,7 +26,7 @@
 
                 this.enableRunAnimation(true);
 
-                //adjust player direction
+                //adjust baseball direction
                 if (this.left) this.scaleX = -1;
                 else this.scaleX = 1;
             }
@@ -56,24 +44,6 @@
             else if (this.down) this.y += this.vel * this.directionY;
         }
         else this.forceAllKeysUp();
-
-        //check collision using 'ndgmr.Collision.js' provided by Olaf Horstmann
-        var tempChest;
-        for (var i=0; i<window.Game.chestManager.children.length; i++){
-            tempChest = window.Game.chestManager.getChildAt(i); //get temporary index
-            if (ndgmr.checkRectCollision(this, tempChest)){
-                if (!tempChest.isClicked()){
-                    this.freeze = true;
-                    tempChest.click();
-                    if (tempChest.success) window.Game.levelManager.addPoint(tempChest.ear);
-                    this.sprite.gotoAndPlay("attack");
-                }
-            }
-        }
-
-        //loop running sound
-        if (this.sprite.currentFrame == 6 && this.runSound){ createjs.Sound.play("player-run", {volume: 1}); this.runSound = false; }
-        else if (this.sprite.currentFrame != 6) this.runSound = true;
 	}
 
 	//public variables
@@ -118,7 +88,7 @@
     }
     container.enableRunAnimation = function(pressed){
         if (pressed){
-            if (this.sprite.currentAnimation == "idle"){
+            if (this.sprite.currentAnimation == "default"){
                 this.sprite.gotoAndPlay("run");
             }
         }
@@ -126,12 +96,13 @@
             this.targetX = this.x; //interrupt target
             this.targetY = this.y;
             if (this.sprite.currentAnimation == "run" && this.allKeysUp()) {
-                this.sprite.gotoAndPlay("idle");
+                this.sprite.gotoAndPlay("default");
             }
         }
     }
     container.allKeysUp = function() { return this.left==this.right==this.up==this.down; }
     container.forceAllKeysUp = function() { this.left=this.right=this.up=this.down=this.target=false; }
+    container.centerToScreen = function() { this.x = window.Game.getCenter()[0]; this.y = window.Game.getCenter()[1]; }
 
-	window.Player = createjs.promote(Player, "Container");
+	window.Baseball = createjs.promote(Baseball, "Container");
 }(window));

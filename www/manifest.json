@@ -1,10 +1,7 @@
 {
   "manifest": [
-    { "id": "backgrounds", "src": "img/backgrounds.png" },
     { "id": "chests", "src": "img/chests.png" },
     { "id": "text", "src": "img/text.png" },
-    { "id": "player", "src": "img/player.png" },
-    { "id": "player-large", "src": "img/player-large.png" },
     { "id": "selector", "src": "img/selector.png" },
     { "id": "trials-remaining", "src": "img/trials-remaining.png" },
     { "id": "coin", "src": "img/coin.png" },
@@ -15,6 +12,18 @@
     { "id": "chest-open", "src": "sounds/chest-open.wav" },
     { "id": "hearo-theme", "src": "sounds/hearo-theme.mp3" },
     { "id": "player-run", "src": "sounds/run.mp3" },
-    { "id": "coins", "src": "sounds/coins.mp3" }
+    { "id": "coins", "src": "sounds/coins.mp3" },
+
+    { "id": "background", "src": "img/background.png" },
+    { "id": "banner", "src": "img/banner.png" },
+    { "id": "baseball", "src": "img/baseball.png" },
+    { "id": "bottle-hidden", "src": "img/bottle-hidden.png" },
+    { "id": "bottle-visible", "src": "img/bottle-visible.png" },
+    { "id": "clock-body", "src": "img/clock-body.png" },
+    { "id": "clock-hand", "src": "img/clock-hand.png" },
+    { "id": "man", "src": "img/man.png" },
+    { "id": "prize-bear", "src": "img/prize-bear.png" },
+    { "id": "prize-candy", "src": "img/prize-candy.png" },
+    { "id": "prize-toy", "src": "img/prize-toy.png" }
   ]
 }
