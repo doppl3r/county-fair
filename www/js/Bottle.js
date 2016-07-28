@@ -1,9 +1,16 @@
 (function (window) {
 
     //constructor
-    function Bottle(instaClick){
+    function Bottle(x,y,text){
         this.Container_constructor();
-        this.instaClick = instaClick;
+        this.x = x;
+        this.y = y;
+        this.bottle_hidden = new createjs.Bitmap(window.Game.assetManager.preload.getResult("bottle-hidden"));
+        this.bottle_visible = new createjs.Bitmap(window.Game.assetManager.preload.getResult("bottle-visible"));
+        this.number = new mText(text,0,24);
+        center(this.bottle_hidden);
+        center(this.bottle_visible);
+        this.addChild(this.bottle_hidden, this.number.txt);
     }
 
     //instance of class
@@ -11,55 +18,20 @@
 
 	//public functions
     container.tick = function(event){
-        if (this.coins != null) this.coins.tick(event);
+
     }
-    container.add = function (x,y,scaleX,scaleY,spriteSheet,frame,centerText) {
-        //initialize Bottle
-        this.x = x;
-        this.y = y;
-        this.sprite = new createjs.Sprite(spriteSheet, frame);
-        this.scaleX = scaleX;
-        this.scaleY = scaleY;
-        this.centerText = centerText;
-        this.sprite.gotoAndStop(frame);
-        this.addChild(this.sprite);
+
+    container.setText = function(text){ this.number.text = text; }
+
+    function mText(text, x, y){
+        this.txt = new createjs.Text(text, "86px coney", "#610067");
+        this.txt.textBaseline = "middle";
+        this.txt.textAlign = "center";
+        this.txt.x = x;
+        this.txt.y = y;
     }
-    container.isClicked = function(){ return this.clicked; }
-    container.click = function() {
-        if (!this.clicked){
-            if (this.success) {
-                if (!this.mute) createjs.Sound.play("coins", {pan:0});
-                this.coins = new CoinEffect();
-                this.coins.addCoins(0, 0, 1, 1, 50, this.instaClick ? 0 : 15); //delay .25 seconds (15)
-                this.addChild(this.coins);
-            }
-            if (!this.instaClick) window.Game.levelManager.setDelay(120); //60 = 1 second delay
-            this.clicked=true;
-            this.sprite.gotoAndPlay(this.sprite.spriteSheet.animations[this.sprite._currentFrame+(this.success ? 1:2)]);
-            this.resetMouse();
-        }
-    }
-    container.mouseOver = function() {
-        if (!this.clicked){
-            this.sprite.alpha=.5;
-            this.cursor="pointer";
-        }
-    }
-    container.mouseOut = function() { this.resetMouse(); }
-    container.setText = function(text, centerText){
-        this.centerText = centerText;
-        if (this.children.length > 0) this.removeChild(this.customText);
-        this.customText = new CustomText(0,-48,this.scaleX < 0 ? -1:1,1,text,centerText);
-        this.addChild(this.customText);
-    }
-    container.update = function(text, ear, success){
-        this.setText(text, this.centerText);
-        this.ear=ear;
-        this.success=success;
-    }
-    container.resetMouse = function() { this.sprite.alpha=1; this.cursor="default"; }
-    container.reset = function() { this.clicked = this.success = false; this.resetMouse(); this.removeChild(this.coins); }
-    container.mute = function(){ this.mute = true; }
+    function center(obj){ obj.setTransform(obj.x,obj.y,obj.scaleX,obj.scaleY,obj.rotation,obj.skewX,obj.skewY,obj.getBounds().width/2,obj.getBounds().height/2); }
+    function centerTo(obj,x,y){ center(obj); obj.x = x; obj.y = y; }
 
 	window.Bottle = new createjs.promote(Bottle, "Container");
 }(window));

@@ -13,7 +13,7 @@
 
     //update
 	container.tick = function (event) {
-		createjs.Tween.get(this.man).wait(0).to({x: 120, scaleY: 1}, 500, createjs.Ease.cubicInOut);
+		createjs.Tween.get(this.man).wait(0).to({x: 90, scaleY: 1}, 500, createjs.Ease.cubicInOut);
 	}
 	container.redraw = function(){
 		this.removeAllChildren();

@@ -95,9 +95,8 @@
 
         //initialize game objects
         if (this.background == null) {  this.background = new Background(); }
-        if (this.baseball == null) { this.baseball = new Baseball(); this.baseball.centerToScreen(); }
-        if (this.selector == null) this.selector = new Selector();
-        if (this.bottles == null) this.bottles = new Bottles();
+        if (this.baseball == null) { this.baseball = new Baseball(); this.baseball.centerToScreenBottom(); }
+        if (this.bottles == null) { this.bottles = new Bottles(); }
         if (this.interface == null) this.interface = new Interface();
         if (this.screenIntro == null) this.screenIntro = new ScreenIntro();
         if (this.screenScore == null) this.screenScore = new ScreenScore();
@@ -115,6 +114,7 @@
                 this.stage.addChild(this.selector);
                 this.stage.addChild(this.baseball);
                 this.stage.addChild(this.interface);
+                this.levelManager.createLevel();
             break;
             case 2:
                 this.stage.addChild(this.screenScore);
@@ -150,6 +150,7 @@
         if (parseInt(content.style.width) > window.innerWidth) content.style.width = window.innerWidth + "px";
     }
     Game.prototype.setID = function(id){ this.userID = id; }
+    Game.prototype.centerToStage = function(obj){ obj.x = this.getWidth()/2; obj.y = this.getHeight()/2; }
     //create prototype of self
     window.Game = new Game();
 }(window));

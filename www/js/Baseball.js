@@ -103,6 +103,7 @@
     container.allKeysUp = function() { return this.left==this.right==this.up==this.down; }
     container.forceAllKeysUp = function() { this.left=this.right=this.up=this.down=this.target=false; }
     container.centerToScreen = function() { this.x = window.Game.getCenter()[0]; this.y = window.Game.getCenter()[1]; }
+    container.centerToScreenBottom = function() { this.x = window.Game.getWidth()/2; this.y = window.Game.getHeight(); }
 
 	window.Baseball = createjs.promote(Baseball, "Container");
 }(window));
