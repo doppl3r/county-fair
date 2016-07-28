@@ -9,7 +9,11 @@
 	var container = new createjs.extend(Bottles, createjs.Container);
 
     //update
-	container.tick = function (event) {  }
+	container.tick = function (event) {
+        for (var i=0; i<this.children.length; i++){
+            this.getChildAt(i).tick(event);
+        }
+    }
 
     //public functions
     container.addBottle = function (x,y,text){

@@ -2,7 +2,7 @@
 
     //constructor
 	function LevelManager() {
-	    this.setGameMode("forward",7,false);
+	    this.setGameMode("forward",9,false);
 	}
 
 	LevelManager.prototype.tick = function () {
