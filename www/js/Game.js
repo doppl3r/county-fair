@@ -12,7 +12,6 @@
 
     //register key functions
     document.onkeydown = handleKeyDown;
-    document.onkeyup = handleKeyUp;
 
     //private functions
     function Game(){ Game.prototype.init(); } //constructor
@@ -42,24 +41,7 @@
         window.Game.stage.update(event);
     }
     //allow for WASD and arrow control scheme
-    function handleKeyDown(e) {
-        if (!e) { var e = window.event; } //cross browser issues exist
-        switch (e.keyCode) {
-            case KEYCODE_A: case KEYCODE_LEFT: Game.prototype.baseball.moveLeft(true); break;
-            case KEYCODE_D: case KEYCODE_RIGHT: Game.prototype.baseball.moveRight(true); break;
-            case KEYCODE_W: case KEYCODE_UP: Game.prototype.baseball.moveUp(true); break;
-            case KEYCODE_S: case KEYCODE_DOWN: Game.prototype.baseball.moveDown(true); break;
-        }
-    }
-    function handleKeyUp(e) {
-        if (!e) { var e = window.event; } //cross browser issues exist
-        switch (e.keyCode) {
-            case KEYCODE_A: case KEYCODE_LEFT: Game.prototype.baseball.moveLeft(false); break;
-            case KEYCODE_D: case KEYCODE_RIGHT: Game.prototype.baseball.moveRight(false); break;
-            case KEYCODE_W: case KEYCODE_UP: Game.prototype.baseball.moveUp(false); break;
-            case KEYCODE_S: case KEYCODE_DOWN: Game.prototype.baseball.moveDown(false); break;
-        }
-    }
+    function handleKeyDown(e) { Game.prototype.levelManager.inputKey(e.keyCode); }
 
     //public functions
     Game.prototype.init = function() {

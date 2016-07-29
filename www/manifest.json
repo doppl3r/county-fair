@@ -1,6 +1,5 @@
 {
   "manifest": [
-    { "id": "chests", "src": "img/chests.png" },
     { "id": "text", "src": "img/text.png" },
     { "id": "selector", "src": "img/selector.png" },
     { "id": "trials-remaining", "src": "img/trials-remaining.png" },

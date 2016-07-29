@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="576ab4fa-1c6a-4adf-908d-4ff7a84a7d24" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/county-fair-graphics.ai" afterPath="$PROJECT_DIR$/www/img/county-fair-graphics.ai" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/img/bottle-hidden.png" afterPath="$PROJECT_DIR$/www/img/bottle-hidden.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Baseball.js" afterPath="$PROJECT_DIR$/www/js/Baseball.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Bottle.js" afterPath="$PROJECT_DIR$/www/js/Bottle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Bottles.js" afterPath="$PROJECT_DIR$/www/js/Bottles.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Interface.js" afterPath="$PROJECT_DIR$/www/js/Interface.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Game.js" afterPath="$PROJECT_DIR$/www/js/Game.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/LevelManager.js" afterPath="$PROJECT_DIR$/www/js/LevelManager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/manifest.json" afterPath="$PROJECT_DIR$/www/manifest.json" />
     </list>
     <ignored path="hearo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +33,7 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="172">
+                <state relative-caret-position="295">
                   <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
                   <folding />
                 </state>
@@ -42,8 +43,18 @@
           <file leaf-file-name="Game.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/js/Game.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="147">
-                  <caret line="97" column="108" selection-start-line="97" selection-start-column="108" selection-end-line="97" selection-end-column="108" />
+                <state relative-caret-position="272">
+                  <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="manifest.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/www/manifest.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
                   <folding />
                 </state>
               </provider>
@@ -52,18 +63,18 @@
           <file leaf-file-name="LevelManager.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/js/LevelManager.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+                <state relative-caret-position="476">
+                  <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Interface.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/www/js/Interface.js">
+          <file leaf-file-name="Baseball.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/www/js/Baseball.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+                <state relative-caret-position="201">
+                  <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -73,21 +84,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Bottles.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/www/js/Bottles.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Bottle.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/js/Bottle.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="68">
-                  <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+                <state relative-caret-position="272">
+                  <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
                   <folding />
                 </state>
               </provider>
@@ -118,19 +119,19 @@
         <option value="$PROJECT_DIR$/www/js/AssetManager.js" />
         <option value="$PROJECT_DIR$/www/js/Background.js" />
         <option value="$PROJECT_DIR$/www/js/Player.js" />
-        <option value="$PROJECT_DIR$/www/manifest.json" />
         <option value="$PROJECT_DIR$/www/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/www/js/ScreenIntro.js" />
-        <option value="$PROJECT_DIR$/www/js/Baseball.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
-        <option value="$PROJECT_DIR$/www/js/Game.js" />
         <option value="$PROJECT_DIR$/www/js/ScreenScore.js" />
         <option value="E:/Work/Yano Creative/Creative Leather/website/promo/11/index.html" />
         <option value="E:/Work/Yano Creative/Creative Leather/website/outdoors/code/index.html" />
         <option value="$PROJECT_DIR$/www/js/Bottles.js" />
         <option value="$PROJECT_DIR$/www/js/Interface.js" />
-        <option value="$PROJECT_DIR$/www/js/LevelManager.js" />
+        <option value="$PROJECT_DIR$/www/js/Game.js" />
+        <option value="$PROJECT_DIR$/www/manifest.json" />
+        <option value="$PROJECT_DIR$/www/js/Baseball.js" />
         <option value="$PROJECT_DIR$/www/js/Bottle.js" />
+        <option value="$PROJECT_DIR$/www/js/LevelManager.js" />
       </list>
     </option>
   </component>
@@ -220,6 +221,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="County Fair" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="county-fair" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="www" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -348,7 +367,7 @@
       <workItem from="1469552885644" duration="692000" />
       <workItem from="1469553797042" duration="2281000" />
       <workItem from="1469637195391" duration="316000" />
-      <workItem from="1469637555493" duration="20541000" />
+      <workItem from="1469637555493" duration="36723000" />
     </task>
     <task id="LOCAL-00001" summary="introduce cordova">
       <created>1465424095072</created>
@@ -469,11 +488,18 @@
       <option name="project" value="LOCAL" />
       <updated>1469667022368</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="animate bottles being hit">
+      <created>1469728771076</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1469728771076</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70981000" />
+    <option name="totallyTimeSpent" value="87163000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
@@ -483,7 +509,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26958832" sideWeight="0.50253487" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26958832" sideWeight="0.49746513" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37848607" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35059762" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -524,20 +550,14 @@
     <MESSAGE value="lock fps to 60fps to prevent high-speed calculations" />
     <MESSAGE value="include core game assets" />
     <MESSAGE value="align bottles to screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="align bottles to screen" />
+    <MESSAGE value="animate bottles being hit" />
+    <option name="LAST_COMMIT_MESSAGE" value="animate bottles being hit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -749,14 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/ScreenIntro.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="521">
@@ -765,34 +777,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/Baseball.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="105" column="83" selection-start-line="105" selection-start-column="83" selection-end-line="105" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/ScreenScore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="97" column="108" selection-start-line="97" selection-start-column="108" selection-end-line="97" selection-end-column="108" />
           <folding />
         </state>
       </provider>
@@ -813,14 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/Interface.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/Bottles.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -829,18 +809,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/LevelManager.js">
+    <entry file="file://$PROJECT_DIR$/www/js/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        <state relative-caret-position="272">
+          <caret line="54" column="33" selection-start-line="54" selection-start-column="33" selection-end-line="54" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="49" column="68" selection-start-line="49" selection-start-column="68" selection-end-line="49" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/img/baseball.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/Bottle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="37" selection-start-line="4" selection-start-column="37" selection-end-line="4" selection-end-column="37" />
+        <state relative-caret-position="272">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/Baseball.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/Interface.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/LevelManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="55" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
           <folding />
         </state>
       </provider>
