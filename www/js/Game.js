@@ -93,7 +93,6 @@
             case 1:
                 this.stage.addChild(this.background);
                 this.stage.addChild(this.bottles);
-                this.stage.addChild(this.selector);
                 this.stage.addChild(this.baseball);
                 this.stage.addChild(this.interface);
                 this.levelManager.createLevel();

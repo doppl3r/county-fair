@@ -23,21 +23,25 @@
                 alpha: 0.5
 	        }, 750,
             createjs.Ease.backInOut).call(
-                function(){
+                function(tween){
+                    var obj = tween._target;
+                    createjs.Tween.removeTweens(obj);
                     this.reset();
                 }
             );
 	    }
 	    else if (this.target == -1){
             this.tween.wait(0).to({
-                    y: window.Game.getHeight()*.25,
-                    rotation: -270,
-                    scaleX: 0.25,
-                    scaleY: 0.25,
-                    alpha: 0.5
-                }, 750,
-                createjs.Ease.backInOut).call(
-                function(){
+                y: window.Game.getHeight()*.25,
+                rotation: -270,
+                scaleX: 0.25,
+                scaleY: 0.25,
+                alpha: 0.5
+            }, 750,
+            createjs.Ease.backInOut).call(
+                function(tween){
+                    var obj = tween._target;
+                    createjs.Tween.removeTweens(obj);
                     this.reset();
                 }
             );
@@ -53,7 +57,6 @@
     container.centerToScreen = function() { this.setXY(window.Game.getCenter()[0], window.Game.getCenter()[1]); }
     container.centerToScreenBottom = function() { this.setXY(window.Game.getWidth()/2,window.Game.getHeight()); }
     container.reset = function(){
-        createjs.Tween.removeTweens(this);
         if (this.x != this.nextX) this.x = this.nextX;
         this.target = 0;
         this.y = window.Game.getHeight();

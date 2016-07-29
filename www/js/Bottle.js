@@ -10,8 +10,8 @@
         this.number = new nText(text,0,24);
         center(this.bottle_hidden);
         center(this.bottle_visible);
+        this.revealBottleNumber();
         this.addChild(this.number.txt, this.bottle_visible);
-        //this.on("click", function(evt){ this.hitTarget(); });
     }
 
     //instance of class
@@ -26,7 +26,18 @@
                 scaleX: 0,
                 scaleY: 0,
                 alpha: 0
-            }, 1000, createjs.Ease.cubicOut).call(function(){ this.hit = false; });
+            }, 1000, createjs.Ease.cubicOut).call(function(tween){
+                var obj = tween._target;
+                createjs.Tween.removeTweens(obj);
+                obj.parent.hit = false;
+            });
+        }
+        if (this.isHidden == true){
+            this.tween.wait(this.delay).to({y: 0}, 1000, createjs.Ease.cubicOut).call(function(tween){
+                var obj = tween._target;
+                createjs.Tween.removeTweens(obj);
+                obj.parent.isHidden = false;
+            });
         }
     }
 
@@ -36,10 +47,17 @@
         this.removeAllChildren();
         this.addChild(this.bottle_hidden, this.number.txt, this.bottle_visible);
         this.bottle_hidden.alpha = 0;
-        createjs.Tween.removeTweens(this.bottle_visible);
         this.tween = createjs.Tween.get(this.bottle_visible,{override:true});
     }
     container.getNumber = function(){ return parseInt(this.number.txt.text); }
+    container.hideBottleNumber = function(delay){
+        this.delay = delay;
+        this.isHidden = true;
+        this.tween = createjs.Tween.get(this.bottle_visible,{override:true});
+    }
+    container.revealBottleNumber = function(){
+        this.bottle_visible.y = -200;
+    }
 
     function nText(text, x, y){
         this.txt = new createjs.Text(text, "80px coney", "#610067");

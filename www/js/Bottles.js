@@ -27,6 +27,16 @@
     }
     container.getBottle = function(i){ return this.getChildAt(i); }
     container.getLastBottle = function(){ return this.getBottle(this.children.length-1); }
+    container.hideBottleNumbers = function(){
+        for (var i=0; i<this.children.length; i++){
+            this.getChildAt(i).hideBottleNumber(i*100);
+        }
+    }
+    container.revealBottleNumbers = function(){
+        for (var i=0; i<this.children.length; i++){
+            this.getChildAt(i).revealBottleNumber();
+        }
+    }
     container.setXY = function(x,y){ this.x=x; this.y=y; }
 
 	window.Bottles = createjs.promote(Bottles, "Container");
