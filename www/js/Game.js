@@ -8,7 +8,7 @@
     var KEYCODE_A = 65; //useful keycode
     var KEYCODE_D = 68; //useful keycode
     var KEYCODE_S = 83; //useful keycode
-    var VIEW = 1; //current stage assets
+    var VIEW = 0; //current stage assets
 
     //register key functions
     document.onkeydown = handleKeyDown;
@@ -72,6 +72,7 @@
         this.assetManager.preload.on("progress", function(){ Game.prototype.assetManager.updateLoading(); window.Game.stage.update(); });
     }
     Game.prototype.setStage = function() {
+        //this.requestUsername();
         //clean up stage
         this.stage.removeAllChildren();
 
@@ -122,7 +123,7 @@
     Game.prototype.getWidth = function(){ return this.canvas.width; }
     Game.prototype.getHeight = function(){ return this.canvas.height; }
     Game.prototype.getCenter = function(){ return [this.canvas.width/2, this.canvas.height/2]; }
-    Game.prototype.setScreen = function(view){ VIEW = view; }
+    Game.prototype.setScreen = function(view){ VIEW = view; console.log(VIEW); }
     Game.prototype.fadeSong = function() { this.hearoThemeFade = true; }
     Game.prototype.resizeCanvas = function(){
         var content = document.getElementById("content");
@@ -132,6 +133,59 @@
     }
     Game.prototype.setID = function(id){ this.userID = id; }
     Game.prototype.centerToStage = function(obj){ obj.x = this.getWidth()/2; obj.y = this.getHeight()/2; }
+    Game.prototype.requestUsername = function(){
+        $("body").removeClass('pw'); //ensure no password styling
+        alertify
+            .okBtn("Submit").cancelBtn("Offline Mode")
+            .defaultValue("jdoe")
+            .prompt("Please enter your user ID",
+                function (val, ev) {
+                    window.Game.setID(val);
+                    window.Game.requestPassword();
+                    alertify.success("User ID: #" + val);
+                    ev.preventDefault();
+                }, function(ev) {
+                    window.Game.setScreen(4);
+                    window.Game.setStage();
+                    ev.preventDefault();
+                    alertify.error("Login Unsuccessful");
+                }
+            );
+    }
+    Game.prototype.requestPassword = function(){
+        $("body").addClass('pw');
+        alertify.logPosition("bottom right");
+        alertify
+            .okBtn("Login").cancelBtn("Cancel")
+            .defaultValue('pass')
+            .prompt("Please enter your password",
+                function (val, ev) {
+                    window.Game.login(val);
+                    ev.preventDefault();
+                    alertify.success("Checking credentials...");
+                }, function(ev) {
+                    window.Game.requestUsername(); //go back to username dialog window
+                    alertify.error("Cancelled");
+                }
+            );
+    }
+    Game.prototype.login = function(val){
+        $.ajax({
+            url: 'https://dashboard.myhealthybrain.net/rest/auth-check?username='+this.userID+'&password='+val,
+            // url: 'https://local.ntldashboard.com/rest/auth-check?username='+username+'&pin='+pin+'&password='+password+'&computer_code='+Globals.macAddress,
+            success: function(response) {
+                if (response.success) {
+                    alertify.success("Login Successful!");
+                    window.Game.setScreen(2);
+                    window.Game.setStage();
+                }else {
+                    alertify.success("Login Failed!");
+                    window.Game.requestPassword();
+                }
+            }
+        })
+    }
+
     //create prototype of self
     window.Game = new Game();
 }(window));

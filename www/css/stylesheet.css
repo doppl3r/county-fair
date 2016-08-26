@@ -3,3 +3,40 @@ body { margin:0; overflow:hidden; }
 canvas { display: block; width: 100%; height: auto; }
 #content { margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
 @font-face { font-family: coney; src: url('../fonts/coney.ttf'); }
+.alertify .dialog div,
+.alertify .dialog input,
+.alertify .dialog nav button,
+.success.show,
+.error.show {
+    background-color: #c34e78;
+    color: #fff !important;
+    font-size: 24px;
+    font-family: 'Arial';
+    outline: none;
+    border: 4px solid rgba(0,0,0,0.05) !important;
+    text-transform: initial !important;
+    border-radius: 4px !important;
+    text-shadow: 2px 0 0 #610067,
+    -2px 0 0 #610067,
+    0 2px 0 #610067,
+    0 -2px 0 #610067,
+    1px 1px #610067,
+    -1px -1px 0 #610067,
+    1px -1px 0 #610067,
+    -1px 1px 0 #610067;
+}
+.alertify .dialog input {
+    margin: 0 0 12px !important;
+}
+.alertify .dialog input::selection {
+    background-color: rgba(0,0,0,0.1);
+    color: white;
+}
+body.pw .alertify .dialog input { -webkit-text-security: disc; }
+.alertify .dialog nav button {
+    margin: 0 0 0 12px !important;
+}
+.alertify .dialog .msg {
+    padding: 0;
+    margin: 0 0 12px !important;
+}
