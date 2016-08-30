@@ -21,8 +21,9 @@
 					var obj = tween._target;
 					createjs.Tween.removeTweens(obj);
 					obj.parent.memorize = false;
-					console.log(obj.parent.memorize);
 					window.Game.bottles.hideBottleNumbers();
+					window.Game.levelManager.requestInput();
+					obj.parent.redraw();
 				}
 			);
 		}
@@ -57,6 +58,11 @@
 		if (this.memorize){ this.addChild(this.clock_body,this.clock_hand); }
 	}
 
+	container.start = function(){
+		this.memorize = true;
+		this.clock_hand.rotation = 0;
+	}
+
 	function mText(text, font, fontSize, color, x, y){
 		this.txt = new createjs.Text(text, fontSize+"px "+font, color);
 		this.txt.textBaseline = "middle";
@@ -67,6 +73,7 @@
 	function center(obj){ obj.setTransform(obj.x,obj.y,obj.scaleX,obj.scaleY,obj.rotation,obj.skewX,obj.skewY,obj.getBounds().width/2,obj.getBounds().height/2); }
 	function centerTo(obj,x,y){ center(obj); obj.x = x; obj.y = y; }
 	function shiftReg(obj,x,y){ obj.regX = x; obj.regY = y; }
+
 
 	window.Interface = createjs.promote(Interface, "Container");
 }(window));

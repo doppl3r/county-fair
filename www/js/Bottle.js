@@ -8,6 +8,7 @@
         this.bottle_hidden = new createjs.Bitmap(window.Game.assetManager.preload.getResult("bottle-hidden"));
         this.bottle_visible = new createjs.Bitmap(window.Game.assetManager.preload.getResult("bottle-visible"));
         this.number = new nText(text,0,24);
+        this.playAudio = false;
         center(this.bottle_hidden);
         center(this.bottle_visible);
         this.revealBottleNumber();
@@ -20,6 +21,7 @@
 	//public functions
     container.tick = function(event){
         if (this.hit == true){
+            if (this.playAudio) { createjs.Sound.play("bottle"); this.playAudio = false; }
             this.tween.wait(500).to({
                 y: -200,
                 rotation: 360*2,
@@ -30,6 +32,7 @@
                 var obj = tween._target;
                 createjs.Tween.removeTweens(obj);
                 obj.parent.hit = false;
+
             });
         }
         if (this.isHidden == true){
@@ -44,6 +47,7 @@
     container.setText = function(text){ this.number.text = text; }
     container.hitTarget = function(){
         this.hit = true;
+        this.playAudio = true;
         this.removeAllChildren();
         this.addChild(this.bottle_hidden, this.number.txt, this.bottle_visible);
         this.bottle_hidden.alpha = 0;

@@ -42,12 +42,14 @@
         this.cursor="pointer";
         this.bgColor = this.bgColor2;
         this.fontColor = this.fontColor2;
+        this.hover = true;
         this.redraw();
     }
     container.rollOut = function(evt) {
         if (!this.toggled && !this.colorToggled) {
             this.bgColor = this.bgColor1;
             this.fontColor = this.fontColor1;
+            this.hover = false;
             this.redraw();
         }
     }
@@ -114,6 +116,7 @@
             }
         }
     }
+    container.isHovering = function(){ return this.hover; }
 
     window.Button = createjs.promote(Button, "Container");
 }(window));

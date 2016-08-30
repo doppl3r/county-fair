@@ -9,7 +9,8 @@
     { "id": "sword", "src": "sounds/sword.wav" },
     { "id": "sword-low", "src": "sounds/sword-low.wav" },
     { "id": "chest-open", "src": "sounds/chest-open.wav" },
-    { "id": "hearo-theme", "src": "sounds/hearo-theme.mp3" },
+    { "id": "music", "src": "sounds/carnival-mix_mixdown.mp3" },
+    { "id": "bottle", "src": "sounds/bottle.mp3" },
     { "id": "player-run", "src": "sounds/run.mp3" },
     { "id": "coins", "src": "sounds/coins.mp3" },
 

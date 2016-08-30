@@ -18,9 +18,19 @@
     //update
 	container.tick = function (event) {
 	    if (this.practice_button.isClicked()){
+	        window.Game.levelManager.setGameMode("forward",3,false,true);
+            window.Game.fadeSong();
 	        window.Game.setScreen(1);
 	        window.Game.setStage();
 	    }
+	    else if (this.play_button.isClicked()){
+	        //eventually this will grab the user score using AJAX
+            window.Game.levelManager.setGameMode("forward",7,false,false);
+	        window.Game.fadeSong();
+            window.Game.setScreen(1);
+            window.Game.setStage()
+        }
+
         //begin animation
         createjs.Tween.get(this.fadeEffect).to({ alpha:0 }, 3000, createjs.Ease.sineOut);
         createjs.Tween.get(this.man).wait(500).to({scaleX: 1, scaleY: 1, y:64 }, 1000, createjs.Ease.cubicInOut);

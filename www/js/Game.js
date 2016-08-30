@@ -16,6 +16,7 @@
     //private functions
     function Game(){ Game.prototype.init(); } //constructor
     function tick(event) {
+        this.delta = event.delta; //elapsedTimeInMS / 1000msPerSecond
         if (window.Game.hearoThemeFade) {
             if (window.Game.hearoTheme.volume > 0) window.Game.hearoTheme.volume -= 0.01;
             else { window.Game.hearoThemeFade = false; window.Game.hearoTheme.stop(); }
@@ -24,24 +25,51 @@
         //call sub ticks
         switch(VIEW) {
             case 0: //intro screen
-                window.Game.screenIntro.tick(event);
+                window.Game.screenIntro.tick(this.delta);
             break;
             case 1: //game screen
-                //window.Game.screenInstructions.tick(event);
-                window.Game.background.tick(event);
-                window.Game.baseball.tick(event);
-                window.Game.bottles.tick(event);
-                window.Game.levelManager.tick(event);
-                window.Game.interface.tick(event);
+                //window.Game.screenInstructions.tick(this.delta);
+                if (window.Game.autoType != null && window.Game.autoType == true){
+                    if (window.Game.delay > 0){
+                        window.Game.delay -= this.delta;
+                    }
+                    else{
+                        window.Game.delay = 750;
+                        window.Game.typeKey();
+                    }
+                }
+                window.Game.background.tick(this.delta);
+                window.Game.baseball.tick(this.delta);
+                window.Game.bottles.tick(this.delta);
+                window.Game.levelManager.tick(this.delta);
+                window.Game.interface.tick(this.delta);
             break;
             case 2: //game screen
-                window.Game.screenScore.tick(event);
+                window.Game.screenScore.tick(this.delta);
             break;
         }
-        window.Game.stage.update(event);
+        window.Game.stage.update(this.delta);
     }
     //allow for WASD and arrow control scheme
-    function handleKeyDown(e) { Game.prototype.levelManager.inputKey(e.keyCode); }
+    Game.prototype.typeKey = function(){
+        handleKeyDown(null);
+    }
+    function handleKeyDown(e) {
+        var keyCode = "";
+        if (window.Game.levelManager.practiceMode == true){ //manual
+            keyCode = e.keyCode;
+            if (window.Game.interface.memorize == false && !window.Game.levelManager.hasDelay()) {
+                Game.prototype.levelManager.inputKey(keyCode);
+            }
+            else { if (window.Game.interface.memorize == true) alertify.error("Memorize the numbers!"); }
+        }
+        else { //auto
+            if (e == null){
+                keyCode = window.Game.levelManager.getAutoKey();  //get key from input value
+                Game.prototype.levelManager.inputKey(keyCode);
+            }
+        }
+    }
 
     //public functions
     Game.prototype.init = function() {
@@ -67,7 +95,7 @@
 
         this.assetManager.preload.on("complete", function(){
             Game.prototype.setStage();
-            //Game.prototype.hearoTheme = createjs.Sound.play("hearo-theme", {interrupt: createjs.Sound.INTERRUPT_NONE, loop: -1});
+            Game.prototype.hearoTheme = createjs.Sound.play("music", {interrupt: createjs.Sound.INTERRUPT_NONE, loop: -1});
         });
         this.assetManager.preload.on("progress", function(){ Game.prototype.assetManager.updateLoading(); window.Game.stage.update(); });
     }
@@ -123,7 +151,7 @@
     Game.prototype.getWidth = function(){ return this.canvas.width; }
     Game.prototype.getHeight = function(){ return this.canvas.height; }
     Game.prototype.getCenter = function(){ return [this.canvas.width/2, this.canvas.height/2]; }
-    Game.prototype.setScreen = function(view){ VIEW = view; console.log(VIEW); }
+    Game.prototype.setScreen = function(view){ VIEW = view; }
     Game.prototype.fadeSong = function() { this.hearoThemeFade = true; }
     Game.prototype.resizeCanvas = function(){
         var content = document.getElementById("content");
@@ -132,6 +160,7 @@
         if (parseInt(content.style.width) > window.innerWidth) content.style.width = window.innerWidth + "px";
     }
     Game.prototype.setID = function(id){ this.userID = id; }
+    Game.prototype.setAutoType = function(autoType){ this.autoType = autoType; }
     Game.prototype.centerToStage = function(obj){ obj.x = this.getWidth()/2; obj.y = this.getHeight()/2; }
     Game.prototype.requestUsername = function(){
         $("body").removeClass('pw'); //ensure no password styling
