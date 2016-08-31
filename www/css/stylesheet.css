@@ -8,12 +8,12 @@ canvas { display: block; width: 100%; height: auto; }
 .alertify .dialog nav button,
 .success.show,
 .error.show {
-    background-color: #c34e78;
+    background-color: #8b6596;
     color: #fff !important;
     font-size: 24px;
     font-family: 'Arial';
     outline: none;
-    border: 4px solid rgba(0,0,0,0.05) !important;
+    border: 4px solid rgba(0,0,0,0.15) !important;
     text-transform: initial !important;
     border-radius: 4px !important;
     text-shadow: 2px 0 0 #610067,

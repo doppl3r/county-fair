@@ -2,12 +2,22 @@
 
     //constructor
 	function LevelManager() {
-
+	    //TODO pull scores from database
+        this.bearCount = 0;
+        this.toyCount = 0;
+        this.candyCount = 0;
+        this.prize = "prize-candy"; //default
 	}
 	LevelManager.prototype.tick = function (delta) {
 	    if (this.delay > 0){ //value given after the last bottle is selected
 	        this.delay -= delta;
             if (this.delay <= 0){
+                //add to score
+                if (this.rPoints >= this.quantity) { this.bearCount++; this.prize = "prize-bear"; }
+                else if (this.rPoints > (this.quantity/2) && this.rPoints < this.quantity) { this.toyCount++; this.prize = "prize-toy"; }
+                else { this.candyCount++; this.prize = "prize-candy"; }
+                //change view
+                window.Game.screenScore.redraw();
                 window.Game.setAutoType(false);
                 window.Game.setScreen(2);
                 window.Game.setStage();
@@ -22,6 +32,7 @@
         if (num == tempBottle.getNumber()){
             tempBaseball.pitch(1);
             tempBottle.hitTarget();
+            this.rPoints++;
         }
         else tempBaseball.pitch(-1);
         //adjust the current index
@@ -63,6 +74,7 @@
         window.Game.baseball.setXY((window.Game.getWidth()/2)-(this.spacing*((this.quantity-1)/2)), null);
     }
     LevelManager.prototype.setGameMode = function(direction, quantity, audible, practiceMode){
+        this.rPoints = 0; //reset round points
         this.direction = direction;
         this.quantity = quantity;
         this.audible = audible;
@@ -72,7 +84,6 @@
     LevelManager.prototype.hasDelay = function(){ return this.delay != null && this.delay > 0; }
     LevelManager.prototype.getAutoKey = function(){
         var char = this.gameString.charAt(this.currentBottleIndex);
-        console.log(char);
         return this.gameString != null ? parseInt(char)+48 : -1;
     }
 

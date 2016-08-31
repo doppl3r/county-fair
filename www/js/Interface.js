@@ -6,6 +6,7 @@
 		this.width = window.Game.getWidth();
 		this.height = window.Game.getHeight();
 		this.memorize = true;
+		this.ready = false;
 		this.redraw();
     }
 
@@ -14,18 +15,24 @@
 
     //update
 	container.tick = function (event) {
-		createjs.Tween.get(this.man).wait(0).to({x: 90, scaleY: 1}, 1000, createjs.Ease.cubicInOut);
 		if (this.memorize){
-			createjs.Tween.get(this.clock_hand).wait(0).to({rotation:360}, 5000).call(
+			createjs.Tween.get(this.man).wait(0).to({x: 90, scaleY: 1}, 2000, createjs.Ease.cubicInOut);
+			createjs.Tween.get(this.fadeEffect).wait(1500).to({ alpha:0 }, 500, createjs.Ease.quartIn);
+			createjs.Tween.get(this.memorizeText.txt).to({ alpha:0 }, 2000, createjs.Ease.quartIn);
+			createjs.Tween.get(this.clock_hand).wait(2000).to({rotation:360}, 5000).call(
 				function(tween){
 					var obj = tween._target;
 					createjs.Tween.removeTweens(obj);
 					obj.parent.memorize = false;
+					obj.parent.ready = true;
 					window.Game.bottles.hideBottleNumbers();
 					window.Game.levelManager.requestInput();
 					obj.parent.redraw();
 				}
 			);
+		}
+		if (this.ready == true){
+			createjs.Tween.get(this.readyText.txt).to({ alpha:0 }, 1000, createjs.Ease.quartIn);
 		}
 	}
 	container.redraw = function(){
@@ -46,16 +53,29 @@
 		centerTo(this.clock_hand, this.width/2, this.height*0.8);
 		shiftReg(this.clock_hand,8,56);
 		//text prototypes
-		this.prize_bear_count = new mText("0","coney",36,"#610067",this.prize_bear.x,this.prize_bear.y+80);
-		this.prize_toy_count = new mText("0","coney",36,"#610067",this.prize_toy.x,this.prize_toy.y+80);
-		this.prize_candy_count = new mText("0","coney",36,"#610067",this.prize_candy.x,this.prize_candy.y+80);
+		this.prize_bear_count = new mText(window.Game.levelManager.bearCount,"coney",36,"#610067",this.prize_bear.x,this.prize_bear.y+80);
+		this.prize_toy_count = new mText(window.Game.levelManager.bearCount,"coney",36,"#610067",this.prize_toy.x,this.prize_toy.y+80);
+		this.prize_candy_count = new mText(window.Game.levelManager.bearCount,"coney",36,"#610067",this.prize_candy.x,this.prize_candy.y+80);
+
+		//fade
+		this.fadeEffect = new createjs.Shape();
+		this.fadeEffect.graphics.beginFill("#8b6596").drawRect(-this.x, -this.y, this.width, this.height);
+		this.memorizeText = new mText("Start memorizing!","coney",64,"#ffffff",this.width/2, (this.height/2));
+		this.readyText = new mText("Start typing!","coney",64,"#610067",(this.width/2), (this.height/2)+128);
+		//this.fadeEffect.alpha = 1;
 
 		//add to stage
 		this.addChild(this.man);
 		this.addChild(this.prize_bear, this.prize_bear_count.txt);
 		this.addChild(this.prize_toy, this.prize_toy_count.txt);
 		this.addChild(this.prize_candy, this.prize_candy_count.txt);
-		if (this.memorize){ this.addChild(this.clock_body,this.clock_hand); }
+		if (this.memorize){
+			this.addChild(this.clock_body,this.clock_hand);
+			this.addChild(this.fadeEffect, this.memorizeText.txt);
+		}
+		else if (this.ready){
+			this.addChild(this.readyText.txt);
+		}
 	}
 
 	container.start = function(){

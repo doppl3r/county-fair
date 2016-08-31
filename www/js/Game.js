@@ -142,8 +142,8 @@
             case 0: break;
             case 1: break;
             case 2:
-                this.baseball.navigate(event);
-                this.selector.animateAt(event);
+                //this.baseball.navigate(event);
+                //this.selector.animateAt(event);
             break;
             case 3: break;
         }
