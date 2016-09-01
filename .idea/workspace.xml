@@ -3,16 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="576ab4fa-1c6a-4adf-908d-4ff7a84a7d24" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/stylesheet.css" afterPath="$PROJECT_DIR$/www/css/stylesheet.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Background.js" afterPath="$PROJECT_DIR$/www/js/Background.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Baseball.js" afterPath="$PROJECT_DIR$/www/js/Baseball.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Bottle.js" afterPath="$PROJECT_DIR$/www/js/Bottle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Bottles.js" afterPath="$PROJECT_DIR$/www/js/Bottles.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Game.js" afterPath="$PROJECT_DIR$/www/js/Game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/Interface.js" afterPath="$PROJECT_DIR$/www/js/Interface.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/LevelManager.js" afterPath="$PROJECT_DIR$/www/js/LevelManager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/ScreenIntro.js" afterPath="$PROJECT_DIR$/www/js/ScreenIntro.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/ScreenScore.js" afterPath="$PROJECT_DIR$/www/js/ScreenScore.js" />
     </list>
     <ignored path="hearo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +26,11 @@
     <splitter split-orientation="vertical" split-proportion="0.49781182">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Interface.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Interface.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/js/Interface.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="125">
-                  <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+                <state relative-caret-position="91">
+                  <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
                   <folding />
                 </state>
               </provider>
@@ -67,18 +59,18 @@
           <file leaf-file-name="LevelManager.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/js/LevelManager.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="193">
-                  <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
+                <state relative-caret-position="397">
+                  <caret line="74" column="66" selection-start-line="74" selection-start-column="66" selection-end-line="74" selection-end-column="66" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Bottles.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Bottles.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/js/Bottles.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+                <state relative-caret-position="205">
+                  <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="67" />
                   <folding />
                 </state>
               </provider>
@@ -111,8 +103,8 @@
           <file leaf-file-name="Bottle.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/js/Bottle.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
+                <state relative-caret-position="273">
+                  <caret line="47" column="78" selection-start-line="47" selection-start-column="78" selection-end-line="47" selection-end-column="78" />
                   <folding />
                 </state>
               </provider>
@@ -160,11 +152,11 @@
         <option value="$PROJECT_DIR$/www/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/www/js/ScreenIntro.js" />
         <option value="$PROJECT_DIR$/www/js/Game.js" />
-        <option value="$PROJECT_DIR$/www/js/LevelManager.js" />
         <option value="$PROJECT_DIR$/www/js/ScreenScore.js" />
+        <option value="$PROJECT_DIR$/www/js/Interface.js" />
+        <option value="$PROJECT_DIR$/www/js/LevelManager.js" />
         <option value="$PROJECT_DIR$/www/js/Bottle.js" />
         <option value="$PROJECT_DIR$/www/js/Bottles.js" />
-        <option value="$PROJECT_DIR$/www/js/Interface.js" />
       </list>
     </option>
   </component>
@@ -390,7 +382,7 @@
       <workItem from="1472487193949" duration="16745000" />
       <workItem from="1472667168086" duration="714000" />
       <workItem from="1472675268860" duration="7061000" />
-      <workItem from="1472699657720" duration="16436000" />
+      <workItem from="1472699657720" duration="18620000" />
     </task>
     <task id="LOCAL-00001" summary="introduce cordova">
       <created>1465424095072</created>
@@ -539,11 +531,18 @@
       <option name="project" value="LOCAL" />
       <updated>1472521752356</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add reverse gamemode">
+      <created>1472717056221</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1472717056222</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149401000" />
+    <option name="totallyTimeSpent" value="151585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
@@ -617,7 +616,8 @@
     <MESSAGE value="bottle &amp; baseball interaction" />
     <MESSAGE value="update intro screen" />
     <MESSAGE value="update gameplay input" />
-    <option name="LAST_COMMIT_MESSAGE" value="update gameplay input" />
+    <MESSAGE value="add reverse gamemode" />
+    <option name="LAST_COMMIT_MESSAGE" value="add reverse gamemode" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -837,14 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/Game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/ScreenIntro.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="101">
@@ -853,34 +845,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/LevelManager.js">
+    <entry file="file://$PROJECT_DIR$/www/js/Game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/Bottle.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="47" column="46" selection-start-line="47" selection-start-column="46" selection-end-line="47" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/Bottles.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="30" column="51" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+        <state relative-caret-position="676">
+          <caret line="116" column="40" selection-start-line="116" selection-start-column="40" selection-end-line="116" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/Interface.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state relative-caret-position="91">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/LevelManager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="74" column="66" selection-start-line="74" selection-start-column="66" selection-end-line="74" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/Bottle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="47" column="78" selection-start-line="47" selection-start-column="78" selection-end-line="47" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/Bottles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="67" />
           <folding />
         </state>
       </provider>

@@ -72,7 +72,7 @@
         for (var i=0; i < this.quantity; i++){
             window.Game.bottles.addBottle(i*this.spacing,0,getRandomInt(0,9));
         }
-        window.Game.bottles.setVisibleBottles(-200);
+        window.Game.bottles.setVisibleBottles(-200,this.direction=="reverse");
         //realign bottles to center
         window.Game.bottles.setXY((window.Game.getWidth()/2)-(this.spacing*((this.quantity-1)/2)),380);
         window.Game.baseball.setXY((window.Game.getWidth()/2)-(this.spacing*((this.quantity-1)/2)), null);
