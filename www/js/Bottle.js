@@ -11,7 +11,7 @@
         this.playAudio = false;
         center(this.bottle_hidden);
         center(this.bottle_visible);
-        this.revealBottleNumber();
+        //this.revealBottleNumber();
         this.addChild(this.number.txt, this.bottle_visible);
     }
 
@@ -35,12 +35,23 @@
 
             });
         }
-        if (this.isHidden == true){
-            this.tween.wait(this.delay).to({y: 0}, 1000, createjs.Ease.cubicOut).call(function(tween){
-                var obj = tween._target;
-                createjs.Tween.removeTweens(obj);
-                obj.parent.isHidden = false;
-            });
+        if (this.isHidden == true || this.isRevealed == true) {
+            createjs.Tween.get(this.bottle_visible).wait(this.delay).to({y: this.newY}, 1000, createjs.Ease.cubicOut).call(
+                function (tween) {
+                    var obj = tween._target;
+                    createjs.Tween.removeTweens(obj);
+                    obj.parent.isHidden = false;
+                }
+            );
+        }
+        if (this.fade == true){
+            createjs.Tween.get(this.number.txt).wait(this.delay).to({alpha: 0}, 1000, createjs.Ease.cubicOut).call(
+                function (tween) {
+                    var obj = tween._target;
+                    createjs.Tween.removeTweens(obj);
+                    obj.parent.fade = false;
+                }
+            );
         }
     }
 
@@ -54,13 +65,14 @@
         this.tween = createjs.Tween.get(this.bottle_visible,{override:true});
     }
     container.getNumber = function(){ return parseInt(this.number.txt.text); }
-    container.hideBottleNumber = function(delay){
+    container.setVisibleBottle = function(delay, newY, fade){
+        this.number.txt.alpha = 1
         this.delay = delay;
-        this.isHidden = true;
+        this.newY = newY;
+        this.fade = fade;
+        this.isHidden = (newY == 0);
+        this.isRevealed = (newY == -200);
         this.tween = createjs.Tween.get(this.bottle_visible,{override:true});
-    }
-    container.revealBottleNumber = function(){
-        this.bottle_visible.y = -200;
     }
 
     function nText(text, x, y){

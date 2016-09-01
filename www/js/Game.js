@@ -112,6 +112,12 @@
         if (this.screenIntro == null) this.screenIntro = new ScreenIntro();
         if (this.screenScore == null) this.screenScore = new ScreenScore();
 
+        this.background.redraw();
+        this.baseball.redraw();
+        this.bottles.removeAllBottles();
+
+        this.interface.redraw();
+
         //ensure stage is blank and add the baseball
         this.stage.clear();
 

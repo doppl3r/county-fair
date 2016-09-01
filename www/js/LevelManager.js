@@ -3,6 +3,8 @@
     //constructor
 	function LevelManager() {
 	    //TODO pull scores from database
+        this.practiceMode = false;
+        this.bottleCount = 7;
         this.bearCount = 0;
         this.toyCount = 0;
         this.candyCount = 0;
@@ -30,7 +32,7 @@
         var tempBaseball = window.Game.baseball;
         //check for matching numbers
         if (num == tempBottle.getNumber()){
-            tempBaseball.pitch(1);
+            tempBaseball.pitch(1,this.currentBottleIndex == 0);
             tempBottle.hitTarget();
             this.rPoints++;
         }
@@ -44,9 +46,10 @@
         tempBaseball.setNextX((window.Game.getWidth()/2)-(this.spacing*((this.quantity-1)/2))+(this.spacing*this.currentBottleIndex));
     }
     LevelManager.prototype.requestInput = function(){
+        $("body").addClass('hideCancel');
         if (this.practiceMode == false){
             alertify
-                .okBtn("Submit").cancelBtn("Retry")
+                .okBtn("Submit").cancelBtn("")
                 .prompt("Type what you remembered:",
                     function (val, ev) {
                         window.Game.levelManager.gameString = val;
@@ -54,10 +57,10 @@
                         ev.preventDefault();
                     },
                     function(ev) {
-                        window.Game.setScreen(4);
+                        window.Game.setScreen(0);
                         window.Game.setStage();
                         ev.preventDefault();
-                        alertify.error("Login Unsuccessful");
+                        alertify.error("Exited...");
                     }
                 );
         }
@@ -69,16 +72,17 @@
         for (var i=0; i < this.quantity; i++){
             window.Game.bottles.addBottle(i*this.spacing,0,getRandomInt(0,9));
         }
+        window.Game.bottles.setVisibleBottles(-200);
         //realign bottles to center
         window.Game.bottles.setXY((window.Game.getWidth()/2)-(this.spacing*((this.quantity-1)/2)),380);
         window.Game.baseball.setXY((window.Game.getWidth()/2)-(this.spacing*((this.quantity-1)/2)), null);
     }
     LevelManager.prototype.setGameMode = function(direction, quantity, audible, practiceMode){
         this.rPoints = 0; //reset round points
-        this.direction = direction;
-        this.quantity = quantity;
-        this.audible = audible;
-        this.practiceMode = practiceMode != null ? practiceMode : false;
+        this.direction = (direction != null) ? direction : this.direction;
+        this.quantity = (quantity != null) ? quantity : this.quantity;
+        this.audible = (audible != null) ? audible : this.audible;
+        this.practiceMode = practiceMode != null ? practiceMode : this.practiceMode;
         this.currentBottleIndex = 0;
     }
     LevelManager.prototype.hasDelay = function(){ return this.delay != null && this.delay > 0; }
@@ -93,3 +97,4 @@
 
 	window.LevelManager = new LevelManager();
 }(window));
+3

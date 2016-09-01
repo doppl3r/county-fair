@@ -3,9 +3,6 @@
     //constructor
 	function Baseball() {
 		this.Container_constructor();
-        this.baseball = new createjs.Bitmap(window.Game.assetManager.preload.getResult("baseball"));
-        this.baseball.setTransform(0,0,1,1,0,0,0,this.baseball.getBounds().width/2,this.baseball.getBounds().height/2)
-        this.addChild(this.baseball);
 	}
 
 	//instance of class
@@ -47,10 +44,17 @@
             );
         }
 	}
-	container.pitch = function(target){
-	    if (this.nextX == null) this.nextX = this.x;
+	container.redraw = function(){
+	    this.removeAllChildren();
+        this.baseball = new createjs.Bitmap(window.Game.assetManager.preload.getResult("baseball"));
+        this.baseball.setTransform(0,0,1,1,0,0,0,this.baseball.getBounds().width/2,this.baseball.getBounds().height/2);
         this.reset();
-	    this.target=target;
+        this.addChild(this.baseball);
+    }
+	container.pitch = function(target, firstBottle){
+	    if (this.nextX == null || firstBottle == true) this.nextX = this.x;
+        this.reset();
+	    this.target = target;
         this.tween = createjs.Tween.get(this,{override:true});
 	}
     container.setXY = function(x,y) { if (x != null) this.x = x; if (y != null) this.y = y; }

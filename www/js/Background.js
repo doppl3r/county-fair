@@ -8,7 +8,7 @@
         this.bg_sprite = new createjs.Sprite(this.bg_spritesheet,"bg-1");
         this.banner_sprite = new createjs.Sprite(this.banner_spritesheet,"banner-1");
         this.banner_sprite.y = -32;
-        this.addChild(this.bg_sprite, this.banner_sprite);
+        this.redraw();
 	}
 
 	//instance of class
@@ -23,6 +23,10 @@
     container.center = function(){
         this.x = window.Game.getCenter()[0];
         this.y = window.Game.getCenter()[1];
+    }
+    container.redraw = function(){
+        this.removeAllChildren();
+        this.addChild(this.bg_sprite, this.banner_sprite);
     }
 
 	window.Background = createjs.promote(Background, "Container");

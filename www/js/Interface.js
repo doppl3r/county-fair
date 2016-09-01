@@ -16,7 +16,7 @@
     //update
 	container.tick = function (event) {
 		if (this.memorize){
-			createjs.Tween.get(this.man).wait(0).to({x: 90, scaleY: 1}, 2000, createjs.Ease.cubicInOut);
+			createjs.Tween.get(this.man).wait(1500).to({x: 90, scaleY: 1}, 1000, createjs.Ease.cubicInOut);
 			createjs.Tween.get(this.fadeEffect).wait(1500).to({ alpha:0 }, 500, createjs.Ease.quartIn);
 			createjs.Tween.get(this.memorizeText.txt).to({ alpha:0 }, 2000, createjs.Ease.quartIn);
 			createjs.Tween.get(this.clock_hand).wait(2000).to({rotation:360}, 5000).call(
@@ -25,8 +25,10 @@
 					createjs.Tween.removeTweens(obj);
 					obj.parent.memorize = false;
 					obj.parent.ready = true;
-					window.Game.bottles.hideBottleNumbers();
+					obj.parent.clock_hand.rotation = 0;
 					window.Game.levelManager.requestInput();
+					if (window.Game.levelManager.direction == "reverse") window.Game.bottles.reverse();
+					window.Game.bottles.setVisibleBottles(0);
 					obj.parent.redraw();
 				}
 			);
@@ -54,8 +56,8 @@
 		shiftReg(this.clock_hand,8,56);
 		//text prototypes
 		this.prize_bear_count = new mText(window.Game.levelManager.bearCount,"coney",36,"#610067",this.prize_bear.x,this.prize_bear.y+80);
-		this.prize_toy_count = new mText(window.Game.levelManager.bearCount,"coney",36,"#610067",this.prize_toy.x,this.prize_toy.y+80);
-		this.prize_candy_count = new mText(window.Game.levelManager.bearCount,"coney",36,"#610067",this.prize_candy.x,this.prize_candy.y+80);
+		this.prize_toy_count = new mText(window.Game.levelManager.toyCount,"coney",36,"#610067",this.prize_toy.x,this.prize_toy.y+80);
+		this.prize_candy_count = new mText(window.Game.levelManager.candyCount,"coney",36,"#610067",this.prize_candy.x,this.prize_candy.y+80);
 
 		//fade
 		this.fadeEffect = new createjs.Shape();
@@ -66,9 +68,6 @@
 
 		//add to stage
 		this.addChild(this.man);
-		this.addChild(this.prize_bear, this.prize_bear_count.txt);
-		this.addChild(this.prize_toy, this.prize_toy_count.txt);
-		this.addChild(this.prize_candy, this.prize_candy_count.txt);
 		if (this.memorize){
 			this.addChild(this.clock_body,this.clock_hand);
 			this.addChild(this.fadeEffect, this.memorizeText.txt);
@@ -76,6 +75,9 @@
 		else if (this.ready){
 			this.addChild(this.readyText.txt);
 		}
+		this.addChild(this.prize_bear, this.prize_bear_count.txt);
+		this.addChild(this.prize_toy, this.prize_toy_count.txt);
+		this.addChild(this.prize_candy, this.prize_candy_count.txt);
 	}
 
 	container.start = function(){

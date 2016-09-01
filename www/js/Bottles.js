@@ -27,15 +27,17 @@
     }
     container.getBottle = function(i){ return this.getChildAt(i); }
     container.getLastBottle = function(){ return this.getBottle(this.children.length-1); }
-    container.hideBottleNumbers = function(){
+    container.setVisibleBottles = function(newY, fade){
         for (var i=0; i<this.children.length; i++){
-            this.getChildAt(i).hideBottleNumber(i*100);
+            this.getChildAt(i).setVisibleBottle(i*100*(fade==true?5:1), newY, fade);
         }
     }
-    container.revealBottleNumbers = function(){
-        for (var i=0; i<this.children.length; i++){
-            this.getChildAt(i).revealBottleNumber();
-        }
+    container.reverse = function(){
+        this.children.reverse();
+        var x = [];
+        for (var i=0; i<this.children.length; i++) x.push(this.getChildAt(i).x);
+        x.reverse();
+        for (var i=0; i<this.children.length; i++) this.getChildAt(i).x = x[i];
     }
     container.setXY = function(x,y){ this.x=x; this.y=y; }
 

@@ -17,15 +17,14 @@
 
     //update
 	container.tick = function (event) {
-	    if (this.practice_button.isClicked()){
-	        window.Game.levelManager.setGameMode("forward",3,false,true);
-            window.Game.fadeSong();
-	        window.Game.setScreen(1);
-	        window.Game.setStage();
-	    }
-	    else if (this.play_button.isClicked()){
+	    if (this.play_button.isClicked()){
+	        var practiceMode = this.practice_button.isToggled();
+            var quantity = window.Game.levelManager.bottleCount;
+            var reverseMode = this.reverse_button.isToggled() ? "reverse" : "forward";
+            var voiceMode = this.voice_button.isToggled();
 	        //eventually this will grab the user score using AJAX
-            window.Game.levelManager.setGameMode("forward",7,false,false);
+            window.Game.levelManager.setGameMode(reverseMode,quantity,voiceMode,practiceMode);
+            window.Game.interface.start();
 	        window.Game.fadeSong();
             window.Game.setScreen(1);
             window.Game.setStage()
@@ -46,15 +45,25 @@
         //man dude
         this.man = new createjs.Bitmap(window.Game.assetManager.preload.getResult("man"));
         this.man.scaleX = this.man.scaleY = 0;
-        centerTo(this.man, 0,640);
+        centerTo(this.man, -240,640);
 
         //buttons
-        this.practice_button = new Button("Practice", -400, 120, 400, 80, "#610067","#fff0e0","#ffffff","#610067");
-        this.practice_button.setFontSize(48);
+        this.practice_button = new Button("Practice Mode", 200, -50, 400, 80, "#fff0e0","#c34e78","#c34e78","#ffffff");
+        this.practice_button.setFontSize(36);
         this.practice_button.setFontFamily("coney");
         this.practice_button.addStroke(3,"#610067");
 
-        this.play_button = new Button("Play", 400, 120, 400, 80, "#610067","#fff0e0","#ffffff","#610067");
+        this.reverse_button = new Button("Reverse Mode", 200, 50, 400, 80, "#fff0e0","#c34e78","#c34e78","#ffffff");
+        this.reverse_button.setFontSize(36);
+        this.reverse_button.setFontFamily("coney");
+        this.reverse_button.addStroke(3,"#610067");
+
+        this.voice_button = new Button("Voice Mode", 200, 150, 400, 80, "#fff0e0","#c34e78","#c34e78","#ffffff");
+        this.voice_button.setFontSize(36);
+        this.voice_button.setFontFamily("coney");
+        this.voice_button.addStroke(3,"#610067");
+
+        this.play_button = new Button("Play", 200, 250, 400, 80, "#610067","#fff0e0","#ffffff","#610067");
         this.play_button.setFontSize(48);
         this.play_button.setFontFamily("coney");
         this.play_button.addStroke(3,"#610067");
@@ -64,7 +73,8 @@
         this.fadeEffect.graphics.beginFill("#ffffff").drawRect(-this.x, -this.y, this.width, this.height);
 
         //add to stage
-        this.addChild(this.background, this.sprite, this.man, this.practice_button, this.play_button, this.fadeEffect);
+        this.addChild(this.background, this.sprite, this.man);
+        this.addChild(this.practice_button, this.reverse_button, this.voice_button, this.play_button, this.fadeEffect);
     }
 
     function center(obj){ obj.setTransform(obj.x,obj.y,obj.scaleX,obj.scaleY,obj.rotation,obj.skewX,obj.skewY,obj.getBounds().width/2,obj.getBounds().height/2); }

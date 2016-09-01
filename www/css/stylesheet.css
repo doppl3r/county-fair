@@ -32,7 +32,7 @@ canvas { display: block; width: 100%; height: auto; }
     background-color: rgba(0,0,0,0.1);
     color: white;
 }
-body.pw .alertify .dialog input { -webkit-text-security: disc; }
+body.hideCancel .alertify .dialog .cancel { display: none !important; }
 .alertify .dialog nav button {
     margin: 0 0 0 12px !important;
 }
