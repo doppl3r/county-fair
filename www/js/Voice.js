@@ -19,8 +19,10 @@
             }
         }
         this.start = function(){
+            this.playlist = [];
             this.audioIndex = 0;
             this.audioLength = window.Game.bottles.children.length;
+            this.audioRate = this.maxAudioRate;
             for (var i=0; i < this.audioLength; i++){
                 var num = window.Game.bottles.getChildAt(i).number.txt.text;
                 this.playlist.push(num);
