@@ -43,6 +43,7 @@
                 window.Game.bottles.tick(this.delta);
                 window.Game.levelManager.tick(this.delta);
                 window.Game.interface.tick(this.delta);
+                window.Game.voice.tick(this.delta);
             break;
             case 2: //game screen
                 window.Game.screenScore.tick(this.delta);
@@ -92,6 +93,7 @@
 
         //create level manager prototype from window object
         this.levelManager = Object.create(LevelManager);
+        this.voice = Object.create(Voice);
 
         this.assetManager.preload.on("complete", function(){
             Game.prototype.setStage();

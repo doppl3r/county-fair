@@ -27,7 +27,8 @@
             window.Game.interface.start();
 	        window.Game.fadeSong();
             window.Game.setScreen(1);
-            window.Game.setStage()
+            window.Game.setStage();
+            if (voiceMode) window.Game.voice.start();
         }
 
         //begin animation

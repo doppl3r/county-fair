@@ -14,6 +14,17 @@
     { "id": "player-run", "src": "sounds/ogg/run.ogg" },
     { "id": "coins", "src": "sounds/ogg/coins.ogg" },
 
+    { "id": "number_0", "src": "sounds/ogg/number_0.ogg" },
+    { "id": "number_1", "src": "sounds/ogg/number_1.ogg" },
+    { "id": "number_2", "src": "sounds/ogg/number_2.ogg" },
+    { "id": "number_3", "src": "sounds/ogg/number_3.ogg" },
+    { "id": "number_4", "src": "sounds/ogg/number_4.ogg" },
+    { "id": "number_5", "src": "sounds/ogg/number_5.ogg" },
+    { "id": "number_6", "src": "sounds/ogg/number_6.ogg" },
+    { "id": "number_7", "src": "sounds/ogg/number_7.ogg" },
+    { "id": "number_8", "src": "sounds/ogg/number_8.ogg" },
+    { "id": "number_9", "src": "sounds/ogg/number_9.ogg" },
+
     { "id": "background", "src": "img/background.png" },
     { "id": "banner", "src": "img/banner.png" },
     { "id": "baseball", "src": "img/baseball.png" },

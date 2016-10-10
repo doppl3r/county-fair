@@ -20,12 +20,13 @@
 			createjs.Tween.get(this.fadeEffect).wait(1500).to({ alpha:0 }, 500, createjs.Ease.quartIn);
 			createjs.Tween.get(this.memorizeText.txt).to({ alpha:0 }, 2000, createjs.Ease.quartIn);
 			createjs.Tween.get(this.clock_hand).wait(2000).to({rotation:360}, 5000).call(
+			    //DO THINGS WHEN CLOCK IS FINISHED
 				function(tween){
 					var obj = tween._target;
 					createjs.Tween.removeTweens(obj);
-					obj.parent.memorize = false;
+					obj.parent.memorize = false; //disable memorizing
 					obj.parent.ready = true;
-					obj.parent.clock_hand.rotation = 0;
+					obj.parent.clock_hand.rotation = 0; //reset clock hand
 					window.Game.levelManager.requestInput();
 					if (window.Game.levelManager.direction == "reverse") window.Game.bottles.reverse();
 					window.Game.bottles.setVisibleBottles(0);

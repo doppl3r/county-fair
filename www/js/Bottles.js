@@ -33,11 +33,11 @@
         }
     }
     container.reverse = function(){
-        this.children.reverse();
-        var x = [];
-        for (var i=0; i<this.children.length; i++) x.push(this.getChildAt(i).x);
-        x.reverse();
-        for (var i=0; i<this.children.length; i++) this.getChildAt(i).x = x[i];
+        this.children.reverse(); //reverse container order (this does not swap x values)
+        var x = []; //create new list to hold 'x' values
+        for (var i=0; i<this.children.length; i++) { x.push(this.getChildAt(i).x); } //add to list of 'x' values
+        x.reverse(); //reverse list of 'x' values
+        for (var i=0; i<this.children.length; i++) this.getChildAt(i).x = x[i]; //replace x values
     }
     container.setXY = function(x,y){ this.x=x; this.y=y; }
 
