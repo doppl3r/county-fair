@@ -46,7 +46,7 @@
                 window.Game.interface.tick(this.delta);
                 window.Game.voice.tick(this.delta);
             break;
-            case 2: //game screen
+            case 2: //score screen
                 window.Game.screenScore.tick(this.delta);
             break;
         }
@@ -57,9 +57,9 @@
         handleKeyDown(null);
     }
     function handleKeyDown(e) {
-        var keyCode = "";
+        var keyCode = e != null ? e.keyCode : "";
         if (window.Game.levelManager.practiceMode == true){ //manual
-            keyCode = e.keyCode;
+            //keyCode =
             if (window.Game.interface.memorize == false && !window.Game.levelManager.hasDelay()) {
                 Game.prototype.levelManager.inputKey(keyCode);
             }
@@ -70,6 +70,12 @@
                 keyCode = window.Game.levelManager.getAutoKey();  //get key from input value
                 Game.prototype.levelManager.inputKey(keyCode);
             }
+        }
+
+        //check other keys
+        if (VIEW == 2){
+            if (keyCode == "13") Game.prototype.screenScore.continue();
+            else if (keyCode == "27") Game.prototype.screenScore.exit();
         }
     }
 

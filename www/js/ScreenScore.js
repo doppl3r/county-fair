@@ -15,19 +15,21 @@
     //update
 	container.tick = function (event) {
         createjs.Tween.get(this.prize).wait(0).to({scaleX: 1, scaleY: 1, y:64 }, 1000, createjs.Ease.backOut);
-        if (this.quit_button.isClicked()){
-            window.Game.setScreen(0);
-            window.Game.setStage();
-        }
-        else if (this.continue_button.isClicked()){
-            //TODO needs to properly reset game
-            window.Game.levelManager.setGameMode();
-            window.Game.interface.start();
-            window.Game.fadeSong();
-            window.Game.setScreen(1);
-            window.Game.setStage();
-            if (window.Game.levelManager.audible) window.Game.voice.start();
-        }
+        if (this.quit_button.isClicked()) this.exit();
+        else if (this.continue_button.isClicked()) this.continue();
+    }
+    container.continue = function(){
+        //TODO needs to properly reset game
+        window.Game.levelManager.setGameMode();
+        window.Game.interface.start();
+        window.Game.fadeSong();
+        window.Game.setScreen(1);
+        window.Game.setStage();
+        if (window.Game.levelManager.audible) window.Game.voice.start();
+    }
+    container.exit = function(){
+        window.Game.setScreen(0);
+        window.Game.setStage();
     }
     container.redraw = function(){
         //background color
