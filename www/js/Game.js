@@ -30,7 +30,8 @@
             case 1: //game screen
                 //window.Game.screenInstructions.tick(this.delta);
                 if (window.Game.autoType != null && window.Game.autoType == true){
-                    if (window.Game.delay > 0){
+                    if (window.Game.delay >= 0){
+
                         window.Game.delay -= this.delta;
                     }
                     else{

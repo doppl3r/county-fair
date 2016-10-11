@@ -14,6 +14,7 @@
     { "id": "player-run", "src": "sounds/ogg/run.ogg" },
     { "id": "coins", "src": "sounds/ogg/coins.ogg" },
 
+    { "id": "throw", "src": "sounds/ogg/throw.ogg" },
     { "id": "number_0", "src": "sounds/ogg/number_0.ogg" },
     { "id": "number_1", "src": "sounds/ogg/number_1.ogg" },
     { "id": "number_2", "src": "sounds/ogg/number_2.ogg" },

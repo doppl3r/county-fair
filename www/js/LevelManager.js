@@ -40,9 +40,17 @@
         //adjust the current index
 
         //check if game is finished
-        if (this.currentBottleIndex < this.quantity - 1) this.currentBottleIndex++;
-        else { if (this.delay == null || this.delay <= 0) this.delay = 1000; } //game finished
-
+        if (this.currentBottleIndex < this.quantity - 1){
+            this.currentBottleIndex++;
+            if (this.currentBottleIndex == this.bottleCount - 1) {
+                this.delay = 1500;
+            }
+        }
+        else {
+            if (this.delay == null || this.delay <= 0){
+                this.delay = 1000;
+            } //game finished
+        }
         tempBaseball.setNextX((window.Game.getWidth()/2)-(this.spacing*((this.quantity-1)/2))+(this.spacing*this.currentBottleIndex));
     }
     LevelManager.prototype.requestInput = function(){

@@ -26,7 +26,7 @@
             window.Game.fadeSong();
             window.Game.setScreen(1);
             window.Game.setStage();
-            window.Game.voice.start();
+            if (window.Game.levelManager.audible) window.Game.voice.start();
         }
     }
     container.redraw = function(){

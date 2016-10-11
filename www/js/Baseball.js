@@ -56,6 +56,7 @@
         this.reset();
 	    this.target = target;
         this.tween = createjs.Tween.get(this,{override:true});
+        createjs.Sound.play("throw");
 	}
     container.setXY = function(x,y) { if (x != null) this.x = x; if (y != null) this.y = y; }
     container.centerToScreen = function() { this.setXY(window.Game.getCenter()[0], window.Game.getCenter()[1]); }
